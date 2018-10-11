@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1.0,user-scalable=0">
+    <title>Title</title>
+
+    <link rel="base" href="{{ app.config['BASE'] }}/"/>
+
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}"/>
+    <link href="https://fonts.googleapis.com/css?family={{ app.config['SITE_FONT_FAMILY'] }}:{{ app.config['SITE_FONT_SIZE'] }}" rel="stylesheet" type="text/css">
+    <style>*{font-family: '{{ app.config["SITE_FONT_FAMILY"] }}', sans-serif;}</style>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/fonticon.css') }}"/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"/>
+
+    <!--[if lt IE 9]>
+    <script src="{{ url_for('static', filename='js/html5shiv.js') }}"></script>
+    <![endif]-->
+	
+	<script async src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+</head>
+{% block body %}{% endblock %}
+</html>

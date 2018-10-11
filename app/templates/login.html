@@ -1,0 +1,35 @@
+{% extends "form.html" %}
+
+{% block form %}
+<form class="login_form" name="work_register" action="" method="post" enctype="multipart/form-data" novalidate>
+	{{ form.hidden_tag() }}
+	<div class="callback_return m_botton">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				{{ message }}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+	</div>
+	
+	<label class="label">
+		<span class="legend">{{ form.username.label }}</span>
+		{{ form.username(size=32, placeholder='Usuario:') }}
+	</label>
+
+	<label class="label">
+		<span class="legend">{{ form.password.label }}</span>
+		{{ form.password(size=32, placeholder='Senha:') }}
+	</label>
+
+	<label class="label_check">
+		{{ form.remember_me() }} {{ form.remember_me.label }}
+	</label>
+	
+	<img class="form_load none" style="float: right; margin-top: 3px; margin-left: 10px;" alt="Enviando Requisição!" title="Enviando Requisição!" src="_img/load.gif"/>
+    {{ form.submit(value='Fazer Login', class='btn btn_green') }}
+	<div class="clear"></div>
+</form>
+<p class="login_link"><a href="{{ url_for('register') }}">Cadastrar-se</a> &nbsp;&nbsp;&nbsp; <a href="{{ url_for('rpass') }}">Perdeu sua senha?</a></p>
+{% endblock %}

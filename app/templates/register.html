@@ -1,0 +1,69 @@
+{% extends "form.html" %}
+
+{% block form %}
+<form class="login_form" name="work_register" action="" method="post" enctype="multipart/form-data" novalidate>
+	{{ form.hidden_tag() }}
+	<div class="callback_return m_botton">
+		{% with messages = get_flashed_messages() %}
+		{% if messages %}
+			{% for message in messages %}
+				{{ message }}
+			{% endfor %}
+		{% endif %}
+		{% endwith %}
+	</div>
+	
+	<label class="label">
+		<span class="legend">{{ form.username.label }}</span>
+		{% for error in form.username.errrors %}
+		<span style="color: red;">[{{ error }}]
+		{% endfor %}
+		{{ form.username(size=32, placeholder='Usuário:') }}
+	</label>
+
+	<label class="label">
+		<span class="legend">{{ form.email.label }}</span>
+		{% for error in form.email.errrors %}
+		<span style="color: red;">[{{ error }}]
+		{% endfor %}
+		{{ form.email(size=50, placeholder='Email:') }}
+	</label>
+
+	<label class="label">
+		<span class="legend">{{ form.first_name.label }}</span>
+		{% for error in form.first_name.errrors %}
+		<span style="color: red;">[{{ error }}]</span>
+		{% endfor %}
+		{{ form.first_name(size=32, placeholder='Primeiro Nome:') }}
+	</label>
+
+	<label class="label">
+		<span class="legend">{{ form.last_name.label }}</span>
+		{% for error in form.last_name.errrors %}
+		<span style="color: red;">[{{ error }}]</span>
+		{% endfor %}
+		{{ form.last_name(size=32, placeholder='Ultimo Nome:') }}
+	</label>
+
+	<label class="label">
+		<span class="legend">{{ form.password.label }}</span>
+		{% for error in form.password.errrors %}
+		<span style="color: red;">[{{ error }}]</span>
+		{% endfor %}
+		{{ form.password(size=32, placeholder='Senha:') }}
+	</label>
+
+	<label class="label">
+		<span class="legend">{{ form.password2.label }}</span>
+		{% for error in form.password2.errrors %}
+		<span style="color: red;">[{{ error }}]</span>
+		{% endfor %}
+		{{ form.password2(size=32, placeholder='Confirmar Senha:') }}
+	</label>
+	
+	<img class="form_load none" style="float: right; margin-top: 3px; margin-left: 10px;" alt="Enviando Requisição!" title="Enviando Requisição!" src="_img/load.gif"/>
+    {{ form.submit(value='Registrar-se!', class='btn btn_green') }}
+	<div class="clear"></div>
+</form>
+<p class="login_link"><a href="{{ url_for('login') }}">Já Esta Cadastrado?</a></p>
+{% endblock %}

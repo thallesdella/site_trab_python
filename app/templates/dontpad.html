@@ -1,0 +1,16 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<header class="dashboard_header">
+    <div class="dashboard_header_title">
+        <h1 class="icon-home">Monitor Dontpad</h1>
+        <p class="dashboard_header_breadcrumbs">
+            &raquo; {{ app.config['SITE_NAME'] }}
+            <span class="crumb">/</span>
+            <a title="{{ app.config['SITE_NAME'] }}" href="{{ app.config['BASE'] }}/home">Dashboard</a>
+        </p>
+    </div>
+</header>
+
+<div class="dashboard_content"></div>
+{% endblock %}

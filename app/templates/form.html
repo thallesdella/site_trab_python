@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body class="login">
+	<div class="container login_container">
+		<div class="login_box">
+			<img class="login_logo" alt="{{ app.config['SITE_NAME'] }}" title="{{ app.config['SITE_NAME'] }}" src="_img/work_icon.png"/>
+			{% block form %}{% endblock %}
+		</div>
+	</div>
+	
+	<div class="login_bg"></div>
+</body>
+{% endblock %}

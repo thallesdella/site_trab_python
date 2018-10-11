@@ -1,0 +1,86 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<header class="dashboard_header">
+    <div class="dashboard_header_title">
+        <h1 class="icon-home">Conta</h1>
+        <p class="dashboard_header_breadcrumbs">
+            &raquo; {{ app.config['SITE_NAME'] }}
+            <span class="crumb">/</span>
+            <a title="{{ app.config['SITE_NAME'] }}" href="{{ url_for('user', username=user.username) }}/">Conta</a>
+            {% if edit %}
+            <span class="crumb">/</span>
+            Editar Conta
+            {% endif %}
+        </p>
+    </div>
+
+    <a title="Editar Usuário" href="" class=""></a>
+</header>
+
+<div class="dashboard_content dashboard_users">
+    <div class="box box70">
+        <div class="panel_header default">
+            <h2 class="icon-user-plus">Dados de {{ user.first_name }}</h2>
+        </div>
+
+        <div class="panel">
+            <form name="user_edit" action="" method="post" enctype="multipart/form-data" novalidate>
+                {{ form.hidden_tag() }}
+                <label class="label">
+                    <span class="legend">Primeiro Nome:</span>
+                    {% if not edit %}
+                    <input value="<p>{{ user.first_name }}</p>" type="text" disabled />
+                    {% else %}
+                    {{ form.first_name(size=32, placeholder=form.first_name.label) }}
+                    {% endif %}
+                </label>
+
+                <label class="label">
+                    <span class="legend">Ultimo Nome:</span>
+                    {% if not edit %}
+                    <input value="<p>{{ user.last_name }}</p>" type="text" disabled />
+                    {% else %}
+                    {{ form.last_name(size=32, placeholder=form.last_name.label) }}
+                    {% endif %}
+                </label>
+
+                <label class="label">
+                    <span class="legend">E-mail:</span>
+                    {% if not edit %}
+                    <input value="<p>{{ user.email }}</p>" type="text" disabled />
+                    {% else %}
+                    {{ form.email(size=50, placeholder=form.email.label) }}
+                    {% endif %}
+                </label>
+
+                {% if edit %}
+                <div class="label_50">
+                    <label class="label">
+                        <span class="legend">Senha:</span>
+                        {{ form.password(size=32, placeholder=form.password.label) }}
+                    </label>
+
+                    <label class="label">
+                        <span class="legend">Confirmar Senha:</span>
+                        {{ form.password2(size=32, placeholder=form.password2.label) }}
+                    </label>
+                </div>
+
+
+                <img class="form_load none fl_right" style="margin-left: 10px; margin-top: 2px;" alt="Enviando Requisição!" title="Enviando Requisição!" src="_img/load.gif"/>
+                {{ form.submit(value=form.submit.label, class='btn btn_green fl_right icon-share') }}
+                {% endif %}
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="box box30">
+        <?php
+            $Image = (file_exists("../uploads/{$user_thumb}") && !is_dir("../uploads/{$user_thumb}") ? "uploads/{$user_thumb}" : 'admin/_img/no_avatar.jpg');
+            ?>
+        <img class="user_thumb" style="width: 100%;" src="../tim.php?src=<?= $Image; ?>&w=400&h=400" alt="" title=""/>
+    </div>
+</div>
+{% endblock %}

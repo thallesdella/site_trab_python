@@ -1,0 +1,83 @@
+{% extends "dashboard.html" %}
+
+{% block content %}
+<header class="dashboard_header">
+    <div class="dashboard_header_title">
+        <h1 class="icon-home">Conta</h1>
+        <p class="dashboard_header_breadcrumbs">
+            &raquo; {{ app.config['SITE_NAME'] }}
+            <span class="crumb">/</span>
+            <a title="{{ app.config['SITE_NAME'] }}" href="{{ url_for('user', username=user.username, action='listar') }}/">Conta</a>
+            {% if edit %}
+            <span class="crumb">/</span>
+            Editar Conta
+            {% endif %}
+        </p>
+    </div>
+
+    <a title="Editar Usuário" href="" class=""></a>
+</header>
+
+<div class="dashboard_content dashboard_users">
+    <div class="box box70">
+        <div class="panel_header default">
+            <h2 class="icon-user-plus">Dados de {{ user.first_name }}</h2>
+        </div>
+
+        <div class="panel">
+            <form name="user_edit" action="" method="post" enctype="multipart/form-data" novalidate>
+                <label class="label">
+                    <span class="legend">Primeiro Nome:</span>
+                    {% if not edit %}
+                    <input value="{{ user.first_name }}" type="text" disabled />
+                    {% else %}
+                    {{ form.first_name(size=32, placeholder='Primeiro Nome:', value=user.first_name) }}
+                    {% endif %}
+                </label>
+
+                <label class="label">
+                    <span class="legend">Ultimo Nome:</span>
+                    {% if not edit %}
+                    <input value="{{ user.last_name }}" type="text" disabled />
+                    {% else %}
+                    {{ form.last_name(size=32, placeholder='Ultimo Nome:', value=user.last_name) }}
+                    {% endif %}
+                </label>
+
+                <label class="label">
+                    <span class="legend">E-mail:</span>
+                    {% if not edit %}
+                    <input value="{{ user.email }}" type="text" disabled />
+                    {% else %}
+                    {{ form.email(size=50, placeholder='Email:', value=user.email) }}
+                    {% endif %}
+                </label>
+
+                {% if edit %}
+                <div class="label_50">
+                    <label class="label">
+                        <span class="legend">Senha:</span>
+                        {{ form.password(size=32, placeholder='Senha:') }}
+                    </label>
+
+                    <label class="label">
+                        <span class="legend">Confirmar Senha:</span>
+                        {{ form.password2(size=32, placeholder='Confirmar Senha:') }}
+                    </label>
+                </div>
+
+
+                <img class="form_load none" style="float: right; margin-top: 3px; margin-left: 10px;" alt="Enviando Requisição!" title="Enviando Requisição!" src="{{ url_for('static', filename='asstes/images/load.gif') }}"/>
+                {{ form.hidden_tag() }}
+			 {{ form.submit(value='Editar!', class='btn btn_green fl_right icon-share') }}
+                {% endif %}
+                <div class="clear"></div>
+            </form>
+        </div>
+    </div>
+
+    <div class="box box30">
+        <img class="user_thumb" style="width: 100%;" src="{{ user.avatar(512) }}" alt="{{ user.first_name }} {{ user.last_name }}" title="{{ user.first_name }} {{ user.last_name }}"/>
+    </div>
+</div>
+{% endblock %}

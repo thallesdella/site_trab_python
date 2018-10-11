@@ -1,0 +1,500 @@
+/*
+ * CSS padrão do Trabalho de Programação em Python 2018.2
+ * Created on : 02/10/2018, 14:10:41
+ * Author     : Thalles Koester
+*/
+
+
+/***********************************
+############## LOGIN ###############
+***********************************/
+.login{
+    background: #00A887;
+}
+
+.login_bg{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: #f3f3f3 url(../images/wc_login_bg.jpg) bottom center no-repeat;
+    background-size: cover;
+    border-bottom: 1px solid #008068;
+}
+
+.login .trigger_ajax{
+    display: block;
+}
+
+.login_container{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    text-align: center;
+    display: flex;
+    padding: 50px 0;
+}
+
+.login_box{
+    margin: auto;
+    width: 400px;
+    max-width: 90%;
+}
+
+.login_logo{
+    width: 120px;
+    max-width: 80%;
+}
+
+.login_form{
+    text-align: left;
+    display: block;
+    width: 400px;
+    max-width: 100%;
+    margin: 25px auto;
+    background: #fff;
+    padding: 25px;
+    box-shadow: 0 0 5px 0 #ccc;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+}
+
+.login_link{
+    font-size: 0.8em;
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.login_link a{
+    color: #fff;
+    font-size: 0.875em;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.login_link a:hover{
+    text-decoration: underline;
+}
+
+
+/***********************************
+############ BOX MODEL #############
+***********************************/
+.box{
+    display: inline-block;
+    vertical-align: top;
+    margin-left: -4px;
+    padding: 10px;
+}
+
+.box > header{
+    padding: 10px;
+    border-top: 5px solid #EBEBEB;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+
+.box > header h1{
+    font-size: 0.875em;
+    font-weight: 600;
+}
+
+.box > header .a{
+    text-transform: uppercase;
+    color: #00B494;
+    text-decoration: none;
+    font-size: 0.8em;
+    margin-top: 4px;
+}
+
+.box > header .a:hover{
+    text-decoration: underline;
+}
+
+.box25{width: 25%;}
+.box30{width: 30%;}
+.box33{width: 33.333333333%;}
+.box50{width: 50%;}
+.box70{width: 70%;}
+.box100{width: 100%;}
+
+.box_content{
+    padding: 15px;
+    font-weight: 300;
+    background: #fff;
+    font-size: 0.875em;
+}
+
+.box_actions{
+    font-size: 0.8em;
+    text-align: center;
+    background: #fbfbfb;
+    padding: 15px 0;
+}
+
+.box_actions .btn{
+    margin: 0 4px !Important;
+}
+
+.header_blue{background: #0E96E5 !important; border-color: #096397 !important; color: #fff;}
+.header_green{background: #00B494 !important; border-color: #008068 !important; color: #fff;}
+.header_yellow{background: #FABB3D !important; border-color: #EEA306 !important; color: #fff;}
+.header_red{background: #FF524F !important; border-color: #C63D3A !important; color: #fff;}
+
+
+/***********************************
+############## PANEL ###############
+***********************************/
+
+/*PANEL HEADER*/
+.panel_header{
+    padding: 15px;
+    background: #FFF;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #CCC;
+}
+
+.panel_header h1, .panel_header h2, .panel_header h3, .panel_header h4, .panel_header h5, .panel_header h6, .panel_header p{color: #555;}
+.panel_header h4, .panel_header h5, .panel_header h6{margin: 8px 0;}
+
+.panel_header > h2 {
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+.panel_header > p{
+    font-size: 0.875em;
+    color: #000;
+    font-weight: 300;
+    margin: 6px 0;
+}
+
+.panel_header mark{
+    padding: 2px 6px;
+}
+
+.panel_header > p.subtitle{
+    margin-left: 40px;
+}
+
+.panel_header > ul{
+    list-style: initial;
+    margin: 30px;
+    font-size: 0.875em;
+    color: #555;
+}
+
+.panel_header > ol{
+    margin: 30px;
+    font-size: 0.875em;
+    color: #555;
+}
+
+.panel_header > span{
+    float: right;
+    margin-top: 4px;
+}
+
+/* PANEL HEADER DEFAULT WHITE */
+.panel_header.default{background: #FFF !important; border-top: 5px solid #EBEBEB !important; border-bottom: 1px solid #EEE !important; color: #555;}
+.panel_header.default > h2{font-size: 0.875em; font-weight: 600; color: #333; padding-bottom: 5px;}
+.panel_header.default > span{position: relative; right: 0; top: -10px;}
+
+/* PANEL HEADER SUCCESS GREEN */
+.panel_header.success{background: #00B494 !important; border-top: 5px solid #008068 !important; border-bottom: 1px solid #008068 !important; color: #FFF;}
+.panel_header.success > h2{font-size: 0.875em; font-weight: 600; color: #FFF; padding-bottom: 5px;}
+.panel_header.success > span{position: relative; right: 0; top: -10px;}
+
+/* PANEL HEADER ALERT YELLOW */
+.panel_header.alert{background: #FABB3D !important; border-top: 5px solid #EEA306 !important; border-bottom: 1px solid #EEA306 !important; color: #FFF;}
+.panel_header.alert > h2{font-size: 0.875em; font-weight: 600; color: #FFF; padding-bottom: 5px;}
+.panel_header.alert > span{position: relative; right: 0; top: -10px;}
+
+/* PANEL HEADER INFO BLUE */
+.panel_header.info{background: #0E96E5 !important; border-top: 5px solid #096397 !important; border-bottom: 1px solid #096397 !important; color: #FFF;}
+.panel_header.info > h2{font-size: 0.875em; font-weight: 600; color: #FFF; padding-bottom: 5px;}
+.panel_header.info > span{position: relative; right: 0; top: -10px;}
+
+/* PANEL HEADER WARNING RED */
+.panel_header.warning{background: #FF524F !important; border-top: 5px solid #C63D3A !important; border-bottom: 1px solid #C63D3A !important; color: #FFF;}
+.panel_header.warning > h2{font-size: 0.875em; font-weight: 600; color: #FFF; padding-bottom: 5px;}
+.panel_header.warning > span{position: relative; right: 0; top: -10px;}
+
+/*PANEL*/
+.panel{
+    padding: 15px;
+    font-weight: 300;
+    background: #fff;
+    font-size: 0.875em;
+}
+
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p{color: #555;}
+.panel h4, .panel h5, .panel h6{margin: 8px 0;}
+
+.panel h2{
+    font-size: 1.8em;
+    font-weight: normal;
+}
+
+.panel > p{
+    font-size: 1em;
+    color: #000;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+.panel mark{
+    padding: 2px 6px;
+}
+
+.panel > ul{
+    list-style: initial;
+    margin: 30px;
+    font-size: 1em;
+    color: #555;
+}
+
+.panel > ol{
+    margin: 30px;
+    font-size: 1em;
+    color: #555;
+}
+
+.panel > span{
+    float: right;
+    position: relative;
+    right: 0;
+    top: -3px;
+}
+
+/*PANEL FOOTER*/
+.panel_footer{
+    padding: 15px;
+    border-top: 1px solid #CCC;
+    color: #555;
+    font-size: 0.75em;
+    text-align: right;
+    font-weight: 300;
+    background: #FFF;
+}
+
+.panel_footer_external{
+    padding: 15px 0;
+    border-top: 1px solid #CCC;
+    color: #555;
+    font-size: 0.75em;
+    text-align: right;
+    font-weight: 300;
+}
+
+.panel_footer > span, .panel_footer_external > span {
+    float: right;
+    position: relative;
+    top: -3px;
+    right: 0;
+    padding-left: 10px;
+}
+
+
+/***********************************
+############ DASHBOARD #############
+***********************************/
+.dashboard_main{
+    width: 100%;
+    height: 100%;
+    background: #f3f3f3;
+}
+
+.dashboard{
+    float: left;
+    width: 100%;
+}
+
+.dashboard_fix{
+    margin-left: 220px;
+}
+
+.dashboard_nav{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 220px;
+    height: 100%;
+    min-height: 100%;
+    background: #2E4051;
+}
+
+.dashboard_nav_normalize{
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 220px;
+    background: #2E4051;
+    z-index: -1;
+}
+
+.dashboard_nav_admin{
+    padding: 20px;
+    background: #1A242E;
+    text-align: center;
+    color: #ccc;
+}
+
+.dashboard_nav_admin_thumb{
+    padding: 3px;
+    border: 1px solid #fff;
+    margin-bottom: 10px;
+}
+
+.dashboard_nav_admin a{
+    color: #ccc;
+    text-decoration: none;
+}
+
+.dashboard_nav_admin a:hover{
+    color: #fff;
+    text-decoration: underline;
+}
+
+.dashboard_nav_menu{
+    float: left;
+    width: 100%;
+    font-size: 0.875em;
+    font-weight: 600;
+    background: #2E4051;
+    padding-bottom: 10px;
+}
+
+.dashboard_nav_menu_li{
+    float: left;
+    width: 100%;
+    position: relative;
+}
+
+.dashboard_nav_menu_li > a{
+    float: left;
+    width: 100%;
+    color: #ccc;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-top: 1px solid #263644;
+}
+
+.dashboard_nav_menu_li:hover,
+.dashboard_nav_menu_li a:hover,
+.dashboard_nav_menu_active > a{
+    background-color: #263644;
+    color: #fff;
+}
+
+.dashboard_nav_menu_active > a:after{
+    content: "«";
+    float: right;
+}
+
+.dashboard_nav_menu_sub{
+    display: none;
+    float: left;
+    width: 100%;
+    left: 100%;
+    position: absolute;
+    background: #263644;
+    z-index: 97;
+}
+
+.dashboard_nav_menu_sub.top{
+    bottom: 0;
+}
+
+.dashboard_nav_menu_li:hover .dashboard_nav_menu_sub{
+    display: block;
+}
+
+.dashboard_nav_menu_sub_li,
+.dashboard_nav_menu_sub_li a{
+    float: left;
+    width: 100%;
+    color: #ccc;
+    text-decoration: none;
+    font-weight: 400;
+}
+
+.dashboard_nav_menu_sub_li a{
+    padding: 10px;
+}
+
+.dashboard_nav_menu_active .dashboard_nav_menu_sub{
+    display: block;
+    position: relative;
+    left: 0;
+}
+
+.dashboard_nav_menu_active .dashboard_nav_menu_sub_li a{
+    padding: 10px 15px 10px 35px;
+    background: #1A242E;
+    border-top: 1px dotted #263644;
+}
+
+.dashboard_sidebar{
+    float: left;
+    width: 100%;
+    padding: 20px 25px;
+    font-size: 0.875em;
+    color: #555;
+}
+
+.dashboard_sidebar_right{
+    text-align: right;
+}
+
+.dashboard_header{
+    float: left;
+    width: 100%;
+    background: #fff;
+    padding: 20px 25px;
+    border-top: 1px solid #EBEBEB;
+    border-bottom: 1px solid #EBEBEB;
+    color: #555;
+}
+
+.dashboard_header_title{
+    display: inline-block;
+}
+
+.dashboard_header h1{
+    font-size: 1.5em;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+.dashboard_header_breadcrumbs{
+    font-size: 0.875em;
+}
+
+.dashboard_header_breadcrumbs .crumb{
+    margin: 0 5px;
+    display: inline-block;
+}
+
+.dashboard_header_breadcrumbs a{
+    font-weight: 600;
+    color: #555;
+    text-decoration: none;
+}
+
+.dashboard_header_breadcrumbs a:hover{
+    text-decoration: underline;
+}
+
+.dashboard_content{
+    float: left;
+    width: 100%;
+    padding: 20px 25px;
+}

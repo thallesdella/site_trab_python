@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block body %}
+<body>
+    <div class="dashboard_fix">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {{ message }}
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+
+        <!-- SIDEBAR -->
+        <nav class="dashboard_nav">
+            <div class="dashboard_nav_admin">
+                <img class="dashboard_nav_admin_thumb rounded" alt="{{user.first_name}} {{user.last_name}}" title="{{user.first_name}} {{user.last_name}}" src="{{ user.avatar(128) }}"/>
+                <p><a href="{{ url_for('user', username=user.username, action='listar') }}" title="Meu Perfil">{{user.first_name}} {{user.last_name}}</a></p>
+            </div>
+
+            <!-- MENU -->
+            <ul class="dashboard_nav_menu">
+                <li class="dashboard_nav_menu_li <?= $getViewInput == 'home' ? 'dashboard_nav_menu_active' : ''; ?>"><a class="icon-home" title="Dashboard" href="{{ app.config['BASE'] }}/home">Dashboard</a></li>
+
+
+                <li class="dashboard_nav_menu_li dashboard_nav_menu_active"><a class="icon-blog" title="Posts" href="{{ app.config['BASE'] }}/dontpad">DontPad</a>
+                    <ul class="dashboard_nav_menu_sub">
+                        <li class="dashboard_nav_menu_sub_li dashboard_nav_menu_active"><a title="Ver Posts" href="{{ app.config['BASE'] }}/dontpad">&raquo; Ver Arquivos</a></li>
+                        <li class="dashboard_nav_menu_sub_li"><a title="Ver Posts" href="{{ app.config['BASE'] }}/dontpad/add">&raquo; Add Arquivos</a></li>
+                    </ul>
+                </li>
+
+                <li class="dashboard_nav_menu_li"><a class="icon-blog" title="Posts" href="{{ app.config['BASE'] }}/autopost">AutoPost</a>
+                    <ul class="dashboard_nav_menu_sub">
+                        <li class="dashboard_nav_menu_sub_li"><a title="Ver Posts" href="{{ app.config['BASE'] }}/autopost">&raquo; Ver Arquivos</a></li>
+                        <li class="dashboard_nav_menu_sub_li"><a title="Ver Posts" href="{{ app.config['BASE'] }}/autopost/add">&raquo; Add Arquivos</a></li>
+                    </ul>
+                </li>
+
+                <li class="dashboard_nav_menu_li"><a class="icon-forward" title="Ver Site" href="{{ app.config['BASE'] }}/config">Config</a></li>
+            </ul>
+            <div class="dashboard_nav_normalize"></div>
+            <!-- FIM MENU -->
+        </nav>
+        <!-- FIM SIDEBAR -->
+
+        <!-- CONTEUDO -->
+        <div class="dashboard">
+            <div class="dashboard_sidebar">
+                <span class="mobile_menu btn btn_blue icon-menu icon-notext"></span>
+                <div class="fl_right">
+                    <span class="dashboard_sidebar_welcome m_right">Bem-vindo(a) {{ app.config['SITE_NAME'] }}, Hoje <?= date('d/m/y H\hi'); ?></span>
+                    <a class="icon-exit btn btn_red" title="Desconectar do {{ app.config['SITE_NAME'] }}" href="{{ app.config['BASE'] }}/logoff">Sair!</a>
+                </div>
+            </div>
+
+            {% block content %}{% endblock %}
+        </div>
+        <!-- FIM CONTEUDO -->
+    </div>
+
+    <script async src="{{ url_for('static', filename='js/workcontrol.js') }}"></script>
+    <script async src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+{% endblock %}
